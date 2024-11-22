@@ -15,7 +15,7 @@ resources:
 - name: msd-service-db
   type: compute.v1.firewall
   properties:
-    network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
+    network: https://www.googleapis.com/compute/v1/projects/lab09-442103/global/networks/default
     priority: 1000
     direction: INGRESS
     sourceTags: 
@@ -32,7 +32,7 @@ resources:
   type: compute.v1.instance
   properties:
     zone: us-central1-a
-    machineType: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/zones/us-central1-a/machineTypes/e2-micro
+    machineType: https://www.googleapis.com/compute/v1/projects/lab09-442103/zones/us-central1-a/machineTypes/e2-micro
     disks:
     - deviceName: boot
       type: PERSISTENT
@@ -41,7 +41,7 @@ resources:
       initializeParams:
         sourceImage: https://www.googleapis.com/compute/v1/projects/cos-cloud/global/images/cos-101-17162-463-8
     networkInterfaces:
-    - network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
+    - network: https://www.googleapis.com/compute/v1/projects/lab09-442103/global/networks/default
       networkIP: 10.128.0.86
       accessConfigs:
       - name: External NAT
@@ -64,7 +64,7 @@ resources:
   type: compute.v1.instance
   properties:
     zone: us-central1-a
-    machineType: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/zones/us-central1-a/machineTypes/e2-micro
+    machineType: https://www.googleapis.com/compute/v1/projects/lab09-442103/zones/us-central1-a/machineTypes/e2-micro
     disks:
     - deviceName: boot
       type: PERSISTENT
@@ -73,7 +73,7 @@ resources:
       initializeParams:
         sourceImage: https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20240307b
     networkInterfaces:
-    - network: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/global/networks/default
+    - network: https://www.googleapis.com/compute/v1/projects/lab09-442103/global/networks/default
       networkIP: 10.128.0.87
       accessConfigs:
       - name: External NAT
@@ -94,6 +94,6 @@ resources:
           sudo curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12
           sudo mkdir /home/labs
           cd /home/labs
-          sudo git clone https://github.com/ISIS2503/ISIS2503-Microservices-AppDjango.git
+          sudo git clone https://github.com/agfarar/ISIS2503-Microservices-AppDjango.git
           cd ISIS2503-Microservices-AppDjango/places
           sudo python3.12 -m pip install -r requirements.txt

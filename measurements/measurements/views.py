@@ -17,12 +17,16 @@ def check_variable(data):
     return False
 
 def get_place_id(data):
-    r = requests.get(settings.PATH_PLACES, headers={"Accept":"application/json"})
+    """
+    Modificar la función para buscar el lugar por código en lugar de nombre.
+    """
+    r = requests.get(settings.PATH_PLACES, headers={"Accept": "application/json"})
     places = r.json()
     for place in places:
-        if data["place"] == place["name"]:
+        if data["place"] == place["code"]:
             return place["id"]
     return -1
+
 
 def MeasurementList(request):
     queryset = Measurement.objects.all()
