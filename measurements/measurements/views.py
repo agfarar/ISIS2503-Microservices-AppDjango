@@ -55,7 +55,12 @@ def MeasurementsCreate(request):
         data_json = json.loads(data)
         measurement_list = []
         for measurement in data_json:
-                    place_id = get_place_id(measurement)
+                    try:
+                         
+                        place_id = get_place_id(measurement)
+                        
+                    except:
+                        place_id = 1
                     if check_variable(measurement) == True and place_id != -1:
                         db_measurement = Measurement()
                         db_measurement.variable = measurement['variable']
